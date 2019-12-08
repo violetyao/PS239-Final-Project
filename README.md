@@ -1,43 +1,42 @@
-This is a template you can use for your final project. Fill in each section with information on your own project.
-
 ## Short Description
 
-Give a short, 1-2 paragraph description of your project. Focus on the code, not the theoretical / substantive / academic side of things. 
+My project looks into featured correlated with sentence length by modeling chinese court documents web scraped from [wenshu.gov.cn](http://wenshu.court.gov.cn/). The following features are extracted for modeling: amount of fine, accusation types, relevant articles, keywords selected from case description.
 
 ## Dependencies
 
-List what software your code depends on, as well as version numbers, like so:.
+Python 3.7.1, Anaconda distribution.
 
-1. R, version 3.1
-2. Python 2.7, Anaconda distribution.
-
-(In your code itself, includes commands that install required packages.)
 
 ## Files
 
-List all other files contained in the repo, along with a brief description of each one, like so:
-
 ### Data
+Since GitHub does not support files larger than 100MB, the following are only subsets (generated from random sampling) of original data. Email violetyao@berkeley.edu for more!
 
-1. polity.csv: The PolityVI dataset, available here: http://www.systemicpeace.org/inscrdata.html
-2. nyt.csv: Contains data from the New York Times API collected via collect-nyt.ipynb . Includes information on all articles containing the term "Programmer Cat", 1980-2010.
-3. analysis-dataset.csv: The final Analysis Dataset derived from the raw data above. It includes country-year values for all UN countries 1980-2010, with observations for the following variables: 
-    - *ccode*: Correlates of War numeric code for country observation
-    - *year*: Year of observation
-    - *polity*: PolityVI score
-    - *nyt*: Number of New York Times articles about "Programmer Cat"
+1. 01-web-scraping-raw-data: Contains ~ 20 sample raw json files (one case per json) web scraped from [wenshu.gov.cn](http://wenshu.court.gov.cn/). Those files are collected via 01-web-scraping.ipynb. ¶Note that as of 12/06, the code is no longer working due to a major upgrade against web scraping from wenshu.
+
+2. 02-compiled-data-500.csv: Contains 500 cases compiled and cleaned from 02-data-pre-processing.ipynb. It is a random sample from 150,000 cases fed to the model.
+
+3. 03-tokenized-data-500.csv: Contains 500 cases tokenized using package Jiaba from 02-data-pre-processing.ipynb. It is a random sample from 150,000 cases fed to the model.
+
+4. 04-cleaned-data-500.csv: Contains 500 cases with stopwords and other stuffs removed from 02-pre-processing.ipynb. It is a random sample from 150,000 cases fed to the model.
+  - *ccode*: Correlates of War numeric code for country observation
+  - *year*: Year of observation
+  - *polity*: PolityVI score
+  - *nyt*: Number of New York Times articles about "Programmer Cat"
 
 ### Code
 
-1. 01_collect-nyt.py: Collects data from New York Times API and exports data to the file nyt.csv
-2. 02_merge-data.R: Loads, cleans, and merges the raw Polity and NYT datasets into the Analysis Dataset.
-2. 03_analysis.R: Conducts descriptive analysis of the data, producing the tables and visualizations found in the Results directory.
+1. `01-web-scraping.ipynb`: Web scraped data from [wenshu.gov.cn](http://wenshu.court.gov.cn/) and exports raw json files into directory `01-web-scraping-raw-data` The basic design is to query keywords to get document id, then download json files using document id.
+2. `02-data-pre-processing.ipynb`: Load and compile json files, melt several columns and save as `02-compiled-data.csv`. Tokenize `fact` column using package Jiaba, save as `03-tokenized-data.csv`. Remove stopwords and other stuffs, save as `04-cleaned-data.csv`. Note GitHub versions of those data csvs are `02-compiled-500.csv`, `03-tokenized-data-500.csv`, `04-cleaned-data-500.csv`.
+2. `03-modeling.ipynb`: Conduct descriptive analysis of the data and filter out cases with dealth_penalty and life_imprisonment. Trained a Linear Regression using accusation types, relevant articles, and keywords selected from case description.
 
 ### Results
 
-1. coverage-over-time.jpeg: Graphs the number of articles about each region over time.
-2. regression-table.txt: Summarizes the results of OLS regression, modelling *nyt* on a number of covariates.
+1. model_result.png: Visualization of model's prediction of sentence length to actual
+2. final-presentation.pdf: Slides for final presentation. Detailed data collection, dataset construction, analysis, modeling and tools overviews can be found at the slides.
 
 ## More Information
 
-Include any other details you think your user might need to reproduce your results. You may also include other information such as your contact information, credits, etc.
+Contact: violetyao@berkeley.edu
+
+Tons of thanks for developers on GitHub, stackoverflow, and CSDN who also work on wenshu website. Web scraping part of the project has been very challenging and my data collection cannot possibly be accomplished without their support.
