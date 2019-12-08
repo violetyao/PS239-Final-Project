@@ -22,7 +22,7 @@ Since GitHub does not support files larger than 100MB, the following are only su
 ![tokenizing](images/tokenizing.png)
 
 4. `04-cleaned-data-500.csv`: Contains 500 cases with stopwords and other stuffs removed from 02-pre-processing.ipynb. It is a random sample from 150,000 cases fed to the model.
-![remove stopwords](images/remove_stopwords.png)
+![remove stopwords](images/remove-stopwords.png)
  
 
 ### Code
