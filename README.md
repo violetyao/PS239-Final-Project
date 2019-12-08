@@ -12,13 +12,13 @@ Python 3.7.1, Anaconda distribution.
 ### Data
 Since GitHub does not support files larger than 100MB, the following are only subsets (generated from random sampling) of original data. Email violetyao@berkeley.edu for more!
 
-1. 01-web-scraping-raw-data: Contains ~ 20 sample raw json files (one case per json) web scraped from [wenshu.gov.cn](http://wenshu.court.gov.cn/). Those files are collected via 01-web-scraping.ipynb. ¶Note that as of 12/06, the code is no longer working due to a major upgrade against web scraping from wenshu.
+1. `01-web-scraping-raw-data`: Contains ~ 20 sample raw json files (one case per json) web scraped from [wenshu.gov.cn](http://wenshu.court.gov.cn/). Those files are collected via 01-web-scraping.ipynb. ¶Note that as of 12/06, the code is no longer working due to a major upgrade against web scraping from wenshu.
 
-2. 02-compiled-data-500.csv: Contains 500 cases compiled and cleaned from 02-data-pre-processing.ipynb. It is a random sample from 150,000 cases fed to the model.
+2. `02-compiled-data-500.csv`: Contains 500 cases compiled and cleaned from 02-data-pre-processing.ipynb. It is a random sample from 150,000 cases fed to the model.
 
-3. 03-tokenized-data-500.csv: Contains 500 cases tokenized using package Jiaba from 02-data-pre-processing.ipynb. It is a random sample from 150,000 cases fed to the model.
+3. `03-tokenized-data-500.csv`: Contains 500 cases tokenized using package Jiaba from 02-data-pre-processing.ipynb. It is a random sample from 150,000 cases fed to the model.
 
-4. 04-cleaned-data-500.csv: Contains 500 cases with stopwords and other stuffs removed from 02-pre-processing.ipynb. It is a random sample from 150,000 cases fed to the model.
+4. `04-cleaned-data-500.csv`: Contains 500 cases with stopwords and other stuffs removed from 02-pre-processing.ipynb. It is a random sample from 150,000 cases fed to the model.
   - *ccode*: Correlates of War numeric code for country observation
   - *year*: Year of observation
   - *polity*: PolityVI score
@@ -32,8 +32,8 @@ Since GitHub does not support files larger than 100MB, the following are only su
 
 ### Results
 
-1. model_result.png: Visualization of model's prediction of sentence length to actual
-2. final-presentation.pdf: Slides for final presentation. Detailed data collection, dataset construction, analysis, modeling and tools overviews can be found at the slides.
+1. `model_result.png`: Visualization of model's prediction of sentence length to actual
+2. `final-presentation.pdf`: Slides for final presentation. Detailed data collection, dataset construction, analysis, modeling and tools overviews can be found at the slides.
 
 ## More Information
 
