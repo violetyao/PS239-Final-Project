@@ -38,7 +38,7 @@ Since GitHub does not support files larger than 100MB, the following are only su
 ### Results
 
 1. `model_result.png`: Visualization of model's prediction of sentence length to actual
-![model performance](images/model_performance.png)
+![model performance](images/model-performance.png)
 2. `final-presentation.pdf`: Slides for final presentation. Detailed data collection, dataset construction, analysis, modeling and tools overviews can be found at the slides.
 
 ## More Information
